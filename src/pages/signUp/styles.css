@@ -1,0 +1,100 @@
+:root {
+    --btn-cadastro: #2A4D77;
+    --btn-cadastro-hover: #406491;
+    --btn-cancelar: #FB0615;
+    --btn-cancelar-hover: #e20505;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+form {
+    height: 450px;
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+input,
+button,
+span {
+    height: 50px;
+    width: 400px;
+
+    margin-bottom: 10px;
+}
+
+span {
+    color: var(--btn-cancelar);
+}
+
+button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:active {
+    transform: translate(2px, 2px);
+}
+
+.btn-cadastrar {
+    color: aliceblue;
+    background-color: var(--btn-cadastro);
+}
+
+.btn-cadastrar:hover {
+    background-color: var(--btn-cadastro-hover);
+}
+
+.btn-cancelar {
+    color: aliceblue;
+    background-color: var(--btn-cancelar);
+}
+
+.btn-cancelar:hover {
+    background-color: var(--btn-cancelar-hover);
+}
+
+img {
+    height: 100vh;
+    width: auto;
+}
+
+.img-close-eye {
+    height: 30px;
+    width: auto;
+
+    position: absolute;
+    right: 30px;
+}
+
+.woman-success {
+    height: 500px;
+    width: auto;
+}
+
+.h1-success {
+    color: var(--btn-cadastro);
+}
