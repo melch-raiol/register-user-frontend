@@ -13,13 +13,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+
+    position: absolute;
 }
 
 h1 {
     margin-bottom: 30px;
 }
 
-form {
+.form-sign-up {
     height: 450px;
     width: 400px;
 
@@ -28,7 +30,7 @@ form {
     align-items: center;
     justify-content: center;
 
-    position: relative;
+    position: absolute;
 }
 
 input,
@@ -44,6 +46,13 @@ span {
     color: var(--btn-cancelar);
 }
 
+.span-login {
+    width: 100px;
+    color: #2A4D77;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 button {
     display: flex;
     flex-direction: column;
@@ -52,7 +61,6 @@ button {
 
     border-radius: 5px;
     border: none;
-    cursor: pointer;
 }
 
 button:active {
@@ -87,7 +95,8 @@ img {
     width: auto;
 
     position: absolute;
-    right: 30px;
+    right: 10px;
+    top: 20%
 }
 
 .woman-success {
@@ -97,4 +106,41 @@ img {
 
 .h1-success {
     color: var(--btn-cadastro);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        top: 40px;
+        margin: 2rem 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .container-login {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+    .input-sign-up {
+        margin-top: 10px;
+        width: 250px;
+    }
+
+    .btn-enter {
+        margin-top: -30px;
+        width: 250px;
+    }
+
+    .btn-cadastrar,
+    .btn-cancelar {
+        margin-top: 10px;
+        width: 250px;
+    }
+}
+
+@media (max-width: 415px) {
+    .container {
+        top: 80px;
+    }
 }

@@ -3,8 +3,18 @@ import { useState } from 'react';
 import OpenEyes from '../../assets/open-eye.svg';
 import CloseEyes from '../../assets/close-eye.svg';
 import api from '../../services/api';
+import Header from '../../components/Header';
+import { useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer';
+
 
 const SignUp = () => {
+
+    const navigate = useNavigate()
+
+    const handleLogin = () => {
+        navigate('/')
+    };
 
     const [users, setUsers] = useState([]);
     const [form, setForm] = useState({
@@ -69,7 +79,7 @@ const SignUp = () => {
 
             setUsers([...users, response.data]);
             // handleClearForm();
-
+            navigate('/')
         } catch (error) {
             console.log(error.message);
         }
@@ -81,37 +91,41 @@ const SignUp = () => {
         setForm({ ...form, [e.target.name]: value })
     };
 
-    console.log({ form });
+    async function login() {
+
+        console.log('Login')
+    };
 
     return (
-        <div className='container'>
+        <>
+            <Header />
+            <div className='container'>
 
-            {
-                success ?
-                    <div>
-                        <h1>Cadastro realizado com sucesso</h1>
-                    </div>
-                    :
+                <form
+                    className='form-sign-up'
+                    onSubmit={handleSubmit}>
+                    <h1>Cadastre-se</h1>
+                    <input
+                        className='input-sign-up'
+                        type='text'
+                        placeholder='Nome'
+                        name='name'
+                        value={form.name}
+                        onChange={(e) => handleChangeForm(e)}
+                    />
 
-                    <form onSubmit={handleSubmit}>
-                        <h1>Cadastre-se</h1>
+                    <input
+                        className='input-sign-up'
+                        type='email'
+                        placeholder='Email'
+                        name='email'
+                        value={form.email}
+                        onChange={(e) => handleChangeForm(e)}
+                    />
+
+                    <div style={{ position: 'relative' }}>
                         <input
-                            type='text'
-                            placeholder='Nome'
-                            name='name'
-                            value={form.name}
-                            onChange={(e) => handleChangeForm(e)}
-                        />
-
-                        <input
-                            type='email'
-                            placeholder='Email'
-                            name='email'
-                            value={form.email}
-                            onChange={(e) => handleChangeForm(e)}
-                        />
-
-                        <input
+                            className='input-sign-up'
                             type={!visible ? 'password' : 'text'}
                             placeholder='Senha'
                             name='password'
@@ -122,22 +136,32 @@ const SignUp = () => {
                             onClick={() => { setVisible(!visible) }}
                             src={!visible ? CloseEyes : OpenEyes}
                         />
+                    </div>
+                    <span>{error}</span>
 
-                        <span>{error}</span>
+                    <div className='buttons'>
+                        <button className='btn-cadastrar'>Cadastrar</button>
 
-                        <div className='buttons'>
-                            <button className='btn-cadastrar'>Cadastrar</button>
+                        <button
+                            type='button'
+                            className='btn-cancelar'
+                            onClick={() => clearForm()}
+                        >
+                            Cancelar
+                        </button>
 
-                            <button
-                                type='button'
-                                className='btn-cancelar'
-                                onClick={() => clearForm()}
-                            >Cancelar</button>
+                        <span
+                            className='span-login'
+                            onClick={() => handleLogin()}
+                        >
+                            Faça o login
+                        </span>
+                    </div>
+                </form>
 
-                        </div>
-                    </form>
-            }
-        </div>
+                <Footer />
+            </div>
+        </>
     )
 };
 

@@ -1,0 +1,33 @@
+header {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 100px;
+    color: rgb(189, 184, 184);
+    background-color: blue;
+    /* border-radius: 0 18px 0px 18px ; */
+
+    position: absolute;
+    top: 0;
+}
+
+.btn-login {
+    height: 20px;
+    width: 60px;
+
+}
+
+.span-register {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+}

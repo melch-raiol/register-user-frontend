@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignUp from './pages/signUp';
 import './index.css';
+import MainRoutes from './routes';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SignUp />
+    <BrowserRouter>
+      <MainRoutes />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
